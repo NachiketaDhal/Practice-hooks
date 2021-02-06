@@ -12,6 +12,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       setOpen(false);
     };
     document.body.addEventListener("click", onBodyClick, { capture: true });
+    // cleanup function to stop showing the Dropdown
     return () => {
       document.body.removeEventListener("click", onBodyClick);
     };
@@ -46,6 +47,9 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
           <div className={`menu ${open ? "visible transition" : ""}`}>
             {renderedOptions}
           </div>
+        </div>
+        <div style={{ color: `${selected.value}` }}>
+          {`This is colour ${selected.value}`}
         </div>
       </div>
     </div>
